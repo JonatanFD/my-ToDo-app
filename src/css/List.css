@@ -1,0 +1,18 @@
+.List {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    padding: 1rem;
+}
+.list-header {
+    margin-bottom: 21px;
+}
+
+.list-content {
+    overflow-y: scroll;
+    height: 340px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

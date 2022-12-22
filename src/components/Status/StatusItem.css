@@ -1,0 +1,19 @@
+.status-item {
+    border: 2px solid #29a19c;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.status-item-value {
+    font-size: 32px;
+    font-weight: 650;
+    color: #29a19c;
+}
+.status-item-content {
+    font-size: 14px;
+}
