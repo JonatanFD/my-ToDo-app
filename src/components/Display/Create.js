@@ -43,6 +43,7 @@ export default function Create({ createNewTask }) {
                     className="create-content-title"
                     required={true}
                     maxLength={35}
+                    autoComplete={"off"}
                 />
                 <div className="create-content-line"></div>
                 <textarea
@@ -52,6 +53,7 @@ export default function Create({ createNewTask }) {
                     value={createDescription}
                     className="create-content-description"
                     required={true}
+                    autoComplete={"off"}
                     onChange={(e) => setCreateDescription(e.target.value)}
                 ></textarea>
 

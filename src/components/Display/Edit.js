@@ -2,6 +2,14 @@ import { React, useState } from 'react';
 import AppButton from '../AppButton';
 import './Edit.css';
 
+export const isItSmall = () => {
+    if (document.getElementById('root').clientWidth <= 414) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
 export default function Edit({
     editDisplayContent,
     isEditing,
@@ -10,16 +18,15 @@ export default function Edit({
 
     updateTask,
     completeTask,
-    deleteTask
+    deleteTask,
+    seeTasksButton
 }) {
     const [editTitle, setEditTitle] = useState(editDisplayContent.title);
     const [editDescription, setEditDescription] = useState(
         editDisplayContent.description
     );
 
-
     const saveTask = () => {
-
         if (editTitle == '' || editDescription == '') {
             alert('Fill in the text areas');
             return;
@@ -33,7 +40,6 @@ export default function Edit({
         updateTask(newItem);
         activateEdition();
     };
-
 
     const renderForm = () => {
         if (isEditing) {
@@ -80,6 +86,13 @@ export default function Edit({
                         value={editDisplayContent.description}
                     ></textarea>
                     <div className="edit-bottom-line"></div>
+                    {isItSmall() ? 
+                    <AppButton
+                    text="See Tasks" 
+                    icon='see'
+                    action={() => {seeTasksButton()}}
+                    /> 
+                    : null}
                 </>
             );
         }
@@ -93,7 +106,7 @@ export default function Edit({
                         icon="create"
                         text="Create new"
                         action={!isEditing ? editCreateButton : null}
-                        classes={!isEditing ? "" : "disable-button"}
+                        classes={!isEditing ? '' : 'disable-button'}
                     />
                 </div>
 
@@ -109,7 +122,9 @@ export default function Edit({
                     />
                     <AppButton
                         text={
-                            !editDisplayContent.completed ? 'Complete' : 'Deselect'
+                            !editDisplayContent.completed
+                                ? 'Complete'
+                                : 'Deselect'
                         }
                         icon={!editDisplayContent.completed ? 'check' : 'undo'}
                         action={() => {
