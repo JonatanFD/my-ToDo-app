@@ -14,7 +14,8 @@ export default function Display({
     saveButton,
     activateEdition,
     completeTask,
-    updateTask
+    updateTask,
+    seeTasksButton
 }) {
     return (
         <>
@@ -23,7 +24,7 @@ export default function Display({
             ) : display ? (
                 <Create createNewTask={createNewTask} />
             ) : (
-                <Edit updateTask={updateTask} completeTask={completeTask} activateEdition={activateEdition} editDisplayContent={editDisplayContent} isEditing={isEditing} editCreateButton={editCreateButton} deleteTask={deleteTask} saveButton={saveButton}/>
+                <Edit seeTasksButton={seeTasksButton} updateTask={updateTask} completeTask={completeTask} activateEdition={activateEdition} editDisplayContent={editDisplayContent} isEditing={isEditing} editCreateButton={editCreateButton} deleteTask={deleteTask} saveButton={saveButton}/>
             )}
         </>
     );

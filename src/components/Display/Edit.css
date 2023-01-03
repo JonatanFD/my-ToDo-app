@@ -13,6 +13,8 @@
     align-items: center;
     justify-content: flex-end;
 }
+
+
 .edit-task-config button:not(:first-of-type){
     margin-left: 1rem;
 }
@@ -63,7 +65,6 @@
     color: white;
     line-height: 34px;
     outline: none;
-
 }
 .edit-content-description {
     height: 70%;
@@ -91,4 +92,23 @@
 }
 .edit-description {
     font-size: 24px;
+}
+
+@media (max-width: 414px) {
+    .Edit {
+        height: 100%;
+        width: 100%;
+        max-height: none;
+    }
+    .edit-header {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .edit-task-config {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+
 }

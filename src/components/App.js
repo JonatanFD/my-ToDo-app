@@ -3,7 +3,10 @@ import '../css/App.css';
 import Display from './Display';
 import List from './List';
 import Status from './Status';
+import { isItSmall } from './Display/Edit';
 
+
+const small = isItSmall()
 function App() {
     const [userList, setUserList] = useState([]);
     const [display, setDisplay] = useState(null);
@@ -16,6 +19,10 @@ function App() {
     const [isEditing, setIsEditing] = useState(false);
 
     const showThisTask = (id, updatedList = null) => {
+        if (small) {
+            setSeeTasks(false)
+        }
+
         if (updatedList != null) {
             const newList = updatedList.map((task) => {
                 if (task.id == id) {
@@ -95,16 +102,22 @@ function App() {
         setDisplay(true);
     };
 
+    const [seeTasks, setSeeTasks] = useState(false);
+    const seeTasksButton = () => {
+        console.log("viendo la lista");
+        setSeeTasks(true);
+    };
+
     return (
         <div className="App">
-            <div className="list-side">
+            <div className={`list-side ${seeTasks ? "show" : null}`}>
                 <Status userList={userList} />
                 <List
                     userList={userList}
                     showThisTask={!isEditing ? showThisTask : () => {}}
                 />
             </div>
-            <div className="display-side">
+            <div className={`display-side ${seeTasks ? "hidden" : null}`}>
                 <Display
                     display={display}
                     createNewTask={createNewTask}
@@ -116,8 +129,10 @@ function App() {
                     activateEdition={activateEdition}
                     completeTask={completeTask}
                     updateTask={updateTask}
+                    seeTasksButton={seeTasksButton}
                 />
             </div>
+
         </div>
     );
 }

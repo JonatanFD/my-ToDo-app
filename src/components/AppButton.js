@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { AiFillEdit, AiOutlineUndo } from 'react-icons/ai';
+import { AiFillEdit, AiOutlineUndo,AiFillEye } from 'react-icons/ai';
 import { MdSaveAlt } from 'react-icons/md';
 import { BsCheck2Circle } from 'react-icons/bs';
 import { IoCreateSharp } from 'react-icons/io5';
@@ -24,6 +24,7 @@ export default function AppButton({ action, text, classes, icon }) {
         clear: <GiBroom className="icon" />,
         save: <MdSaveAlt className="icon" />,
         undo: <AiOutlineUndo className="icon" />,
+        see: <AiFillEye />
     };
 
     return (

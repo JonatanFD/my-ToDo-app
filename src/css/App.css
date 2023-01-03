@@ -45,3 +45,43 @@ body {
     justify-content: center;
     font-size: 48px;
 }
+
+#root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.hidden {
+    display: none !important;
+}
+.show {
+    display: flex !important;
+    flex-direction: column;
+    
+}
+
+@media (max-width: 414px) {
+    .App {
+        height: 100vh;
+        width: 100%;
+    
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+    .list-side {
+        display: none;
+
+    }
+    .display-side  {
+        width: 100% !important;
+        height: 100vh;
+    }
+    .app-container {
+        padding: 0rem;
+        background-color: transparent;
+        color: white;
+        font-size: 24px;
+    }
+}
